@@ -1,0 +1,36 @@
+#include <bits/stdc++.h>
+using namespace std;
+#define ll long long
+bool isgreater(vector<int>v)
+{
+    int n=v.size(),ev=0,od=0;
+    for(int i=0;i<n;i++)
+    {
+        if(v[i]%2==0) ev++;
+        else od++;
+    }
+    return ev>od;
+}
+
+bool isknown(ll n,int i)
+{
+    return (n>>i)&1;
+}
+ll setbit(ll n,int i)
+{
+    return n|(1<<n);
+}
+ll resetbit(ll n,int i)
+{
+    return n&(~(1<<i));
+}
+ll flip(ll n,int i)
+{
+    return n^(1<<i);
+}
+int main() {
+    ios_base::sync_with_stdio(0);
+    cin.tie(0); cout.tie(0);
+
+    return 0;
+}
