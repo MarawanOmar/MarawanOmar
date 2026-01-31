@@ -1,17 +1,14 @@
 #include <bits/stdc++.h>
 using namespace std;
 #define ll long long
-bool isgreater(vector<int>v)
-{
-    int n=v.size(),ev=0,od=0;
-    for(int i=0;i<n;i++)
-    {
-        if(v[i]%2==0) ev++;
-        else od++;
+int countBits(int x) {
+    int cnt = 0;
+    while (x) {
+        cnt += (x & 1);
+        x >>= 1;
     }
-    return ev>od;
+    return cnt;
 }
-
 bool isknown(ll n,int i)
 {
     return (n>>i)&1;
