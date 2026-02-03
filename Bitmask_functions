@@ -30,6 +30,10 @@ bool ispoweroftwo(int n)
     if(n==0) return 0;
     return !(n&(n-1));
 }
+bool isodd(ll n)
+{
+   return n&1;
+}
 int main() {
     ios_base::sync_with_stdio(0);
     cin.tie(0); cout.tie(0);
