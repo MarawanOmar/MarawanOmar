@@ -34,7 +34,16 @@ ll lcm(ll a,ll b)
 
 
 //PrimeNumber
-
+bool isprime(ll n)
+{
+    if(n==1||n==0) return 0;
+    else if(n==2) return 1;
+    for(ll i=3;i*i<=n;i+=2)
+    {
+        if(n%i==0) return 0;
+    }
+    return 1;
+}
 
 
 
