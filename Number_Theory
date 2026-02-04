@@ -106,6 +106,30 @@ ll powmod(ll a,ll b)
 
 
 
+
+// Adding Big Numbers
+string addBigNumbers(string a, string b) {
+    if (a.length() < b.length()) swap(a, b);
+    
+    string result = "";
+    int carry = 0;
+    int diff = a.length() - b.length();
+    
+    for (int i = a.length() - 1; i >= 0; i--) {
+        int sum = (a[i] - '0') + carry;
+        if (i - diff >= 0) sum += (b[i - diff] - '0');
+        result = char(sum % 10 + '0') + result;
+        carry = sum / 10;
+    }
+    
+    if (carry) result = char(carry + '0') + result;
+    return result;
+}
+
+
+
+
+
 // Function deal with integers bigger than mod
 const ll mod=1e9+7;
 // Add
