@@ -16,6 +16,20 @@ vector<ll>Devisors(ll n)
 }
 
 
+
+//sumDivisable
+ll sumDivisible(ll a, ll b, ll c) {
+    if (a > b) swap(a, b);
+    ll first = ((a + c - 1) / c) * c;
+    if (first > b) return 0;
+    ll last = (b / c) * c;
+    ll n = (last - first) / c + 1;
+    ll sum = n * (first + last) / 2;
+    return sum;
+}
+
+
+
 // gcd
 ll gcd(ll a, ll b)
 {
