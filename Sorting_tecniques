@@ -1,0 +1,200 @@
+// insertionSort
+
+void insertionSort (int list[], int size)
+{
+	int i,j,item;
+
+	for (i=1; i<size; i++)
+	{
+		item = list[i] ;
+		for (j=i-1; (j>=0)&& (list[j] > item); j--)
+			list[j+1] = list[j];
+		list[j+1] = item ;
+	}
+}
+
+
+// Selection Sort 
+
+int findMinLloc (int x[ ], int k, int size) 
+{ 
+    int j, pos;     
+	pos = k; 
+	for (j=k+1; j<size; j++)
+		if (x[j] < x[pos])
+			pos = j;
+	return pos;
+}	
+int selectionSort (int x[], int size)	
+{  int k, m;
+	for (k=0; k<size-1; k++)	
+     {
+		m = findMinLoc(x, k, size);
+		temp = a[k];
+		a[k] = a[m];
+		a[m] = temp;
+	}
+}
+
+
+// Bubble Sort 
+
+void swap(int *x, int *y)
+{
+	int tmp = *x;
+	*x = *y;
+	*y = tmp;
+}
+void bubble_sort(int x[], int n)
+{
+  int i,j;
+  int flag = 0;
+   for (i=n-1; i>0; i--)
+   {
+     for (j=0; j<i; j++)
+     if (x[j] > x[j+1])
+     {
+       swap(&x[j],&x[j+1]);
+       flag = 1;
+     }
+     if (flag == 0) return;
+   }
+}
+
+
+
+
+
+// Quick Sort
+int partition( int a[], int l, int r)
+{
+   int pivot, i, j, t;
+   pivot = a[l];
+   i = l;
+   j = r+1;
+   while( 1) {
+          do {
+              ++i;
+             } while(a[i]<=pivot && i<=r);
+          do {
+              --j;
+             } while( a[j] > pivot );
+          if( i >= j ) break;
+          t = a[i];
+          a[i] = a[j];
+          a[j] = t;
+   }
+   t = a[l];
+   a[l] = a[j];
+   a[j] = t;
+   return j;
+}
+
+#include <stdio.h>
+void quickSort( int[], int, int);
+int partition( int[], int, int);
+void main()
+{
+   int i,a[] = { 7, 12, 1, -2, 0, 15, 4, 11, 9};
+   printf("\n\nUnsorted array is: ");
+   for(i = 0; i < 9; ++i)
+      printf(" %d ", a[i]);
+   quickSort( a, 0, 8);
+   printf("\n\nSorted array is: ");
+   for(i = 0; i < 9; ++i)
+      printf(" %d ", a[i]);
+}
+void quickSort( int a[], int l, int r)
+{
+   int j;
+   if( l < r ) {  // divide and conquer
+   j = partition( a, l, r);
+   quickSort( a, l, j-1);
+   quickSort( a, j+1, r);
+   }
+}
+
+
+
+
+// Merge Sort
+#include<stdio.h>
+void mergesort(int a[],int i,int j);
+void merge(int a[],int i1,int j1,int i2,int j2);
+
+int main()
+{
+    int a[30],n,i;
+    printf("Enter no of elements:");
+    scanf("%d",&n);
+    printf("Enter array elements:");
+
+    for(i=0;i<n;i++)
+      scanf("%d",&a[i]);
+
+    mergesort(a,0,n-1);
+
+    printf("\nSorted array is :");
+    for(i=0;i<n;i++)
+      printf("%d ",a[i]);
+
+    return 0;
+}
+void mergesort(int a[],int i,int j)
+{
+    int mid;
+
+    if(i<j) {
+    mid=(i+j)/2;
+   /* left recursion */
+    mergesort(a,i,mid);
+   /* right recursion */
+    mergesort(a,mid+1,j);
+ /* merging of two sorted sub-arrays */
+    merge(a,i,mid,mid+1,j);
+    }
+} 
+void merge(int a[],int i1,int i2,int j1,int j2)
+{
+    int temp[50]; //array used for merging
+    int i=i1,j=j1,k=0;
+
+    while(i<=i2 && j<=j2) //while elements in both lists
+    {
+      if(a[i]<a[j])
+         temp[k++]=a[i++];
+      else
+         temp[k++]=a[j++];
+     }
+
+    while(i<=i2) //copy remaining elements of the first list
+       temp[k++]=a[i++];
+
+    while(j<=j2) //copy remaining elements of the second list
+       temp[k++]=a[j++];
+
+    for(i=i1,j=0;i<=j2;i++,j++)
+    a[i]=temp[j]; //Transfer elements from temp[] back to a[]
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
